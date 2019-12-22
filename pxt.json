@@ -1,6 +1,6 @@
 {
-    "name": "ABC 2.0",
-    "version": "1.0.0",
+    "name": "mbit",
+    "version": "0.0.1",
     "description": "Extension for ABC Maker V2",
     "license": "MIT",
     "dependencies": {
