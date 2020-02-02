@@ -128,10 +128,10 @@ namespace UMI_Bit_Robot {
     
     export enum enServo {
         
-        SERVO_1 = 0,
-        SERVO_2 = 1,
-        SERVO_3 = 12,
-        SERVO_4 = 13
+        SERVO_1 = 15,
+        SERVO_2 = 12,
+        SERVO_3 = 13,
+        SERVO_4 = 14
     }
     export enum CarState {
         //% blockId="Car_Run" block="forward"
