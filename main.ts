@@ -327,8 +327,8 @@ namespace UMI_Bit_Robot {
 
     function Car_stop() {
        
-        setPwm(6, 0, 4095);
-        setPwm(7, 0, 4095);
+        setPwm(6, 0, 0);
+        setPwm(7, 0, 0);
 
         setPwm(10, 0, 0);
         setPwm(11, 0, 0);
