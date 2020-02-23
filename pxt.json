@@ -6,7 +6,7 @@
     "dependencies": {
         "core": "*",
         "neopixel": "github:lzty634158/pxt-neopixel",
-        "Mbit_IR":  "github:umi-academy/OSOYOO_IR"
+        "Mbit_IR":  "github:umi-academy/bit-ir"
 	
 
     },
