@@ -26,48 +26,48 @@ namespace UMI_Sensor {
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Ultrasonic_Car(port: enSensor): number {
-    	if (port == enSensor.sensor1)
-    	{
-    		// send pulse
-        	pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
-        	pins.digitalWritePin(DigitalPin.P12, 0);
-        	control.waitMicros(2);
-        	pins.digitalWritePin(DigitalPin.P12, 1);
-        	control.waitMicros(15);
-        	pins.digitalWritePin(DigitalPin.P12, 0);
+    	switch (port) {
+    		case enSensor.sensor1: {
+    			// send pulse
+        		pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
+        		pins.digitalWritePin(DigitalPin.P12, 0);
+        		control.waitMicros(2);
+        		pins.digitalWritePin(DigitalPin.P12, 1);
+        		control.waitMicros(15);
+        		pins.digitalWritePin(DigitalPin.P12, 0);
 
-        	// read pulse
-        	let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
-        	return  Math.floor(d / 58);
-    	}
-    	if (port == enSensor.sensor2)
-    	{
-    		// send pulse
-        	pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
-        	pins.digitalWritePin(DigitalPin.P14, 0);
-        	control.waitMicros(2);
-        	pins.digitalWritePin(DigitalPin.P14, 1);
-        	control.waitMicros(15);
-        	pins.digitalWritePin(DigitalPin.P14, 0);
+        		// read pulse
+        		let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
+       			break;
+    		}
+    		case enSensor.sensor2: {
+    			// send pulse
+        		pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
+        		pins.digitalWritePin(DigitalPin.P14, 0);
+        		control.waitMicros(2);
+        		pins.digitalWritePin(DigitalPin.P14, 1);
+        		control.waitMicros(15);
+        		pins.digitalWritePin(DigitalPin.P14, 0);
 
-        	// read pulse
-        	let d = pins.pulseIn(DigitalPin.P1, PulseValue.High, 43200);
-        	return  Math.floor(d / 58);
-    	}
-    	if (port == enSensor.sensor3)
-    	{
-    		// send pulse
-        	pins.setPull(DigitalPin.P15, PinPullMode.PullNone);
-        	pins.digitalWritePin(DigitalPin.P15, 0);
-        	control.waitMicros(2);
-        	pins.digitalWritePin(DigitalPin.P15, 1);
-        	control.waitMicros(15);
-        	pins.digitalWritePin(DigitalPin.P15, 0);
+        		// read pulse
+        		let d = pins.pulseIn(DigitalPin.P1, PulseValue.High, 43200);
+       			break;
+    		}
+    		case enSensor.sensor3: {
+    			// send pulse
+        		pins.setPull(DigitalPin.P15, PinPullMode.PullNone);
+        		pins.digitalWritePin(DigitalPin.P15, 0);
+        		control.waitMicros(2);
+        		pins.digitalWritePin(DigitalPin.P15, 1);
+        		control.waitMicros(15);
+        		pins.digitalWritePin(DigitalPin.P15, 0);
 
-        	// read pulse
-        	let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, 43200);
-        	return  Math.floor(d / 58);
+        		// read pulse
+        		let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, 43200);
+       			break;
+    		}
     	}
+        return  Math.floor(d / 58);
     }
 }
 
