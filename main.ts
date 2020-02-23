@@ -30,7 +30,7 @@ namespace UMI_Sensor {
     	if (port == enSensor.sensor1){
         	pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
         	pins.digitalWritePin(DigitalPin.P12, 0);
-        	control.waitMicros(2);
+        	control.waitMicros(5);
         	pins.digitalWritePin(DigitalPin.P12, 1);
         	control.waitMicros(15);
         	pins.digitalWritePin(DigitalPin.P12, 0);
