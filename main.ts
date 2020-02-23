@@ -455,7 +455,7 @@ namespace UMI_Robot {
     //% speed.min=0 speed.max=255
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function CarCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
+    export function MotorCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
         switch (motor) {
             case enMotor.MOTOR_1A: {
             	if (index == MotorState.Car_SpinLeft) {
