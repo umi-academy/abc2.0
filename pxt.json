@@ -5,7 +5,8 @@
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "Mbit_IR":  "github:umi-academy/bit-ir"
+        "Mbit_IR":  "github:umi-academy/bit-ir",
+        "Mbit_RGB": "github:umi-academy/neo"
 	
 
     },
