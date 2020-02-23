@@ -105,6 +105,9 @@ namespace UMI_Sensor {
     }
 }
 
+let RGB_LED: UMI_RGB.Strip;
+RGB_LED = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
+
 
 //% color="#006400" weight=20 icon="\uf185"
 namespace UMI_Robot {
@@ -129,8 +132,6 @@ namespace UMI_Robot {
     const PRESCALE = 0xFE
 
     let initialized = false
-
-    let RGB_LED: UMI_RGB.Strip;
 
     export enum enLineState {
         //% blockId="White" block="white"
@@ -332,13 +333,4 @@ namespace UMI_Robot {
         setPwm(num, 0, pwm);
 
     }
-
-    function RGB_Car_Program(): UMI_RGB.Strip {
-         
-        if (!RGB_LED) {
-            RGB_LED = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
-        }
-        return RGB_LED;  
-    }
-
 }
