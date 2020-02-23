@@ -109,9 +109,6 @@ namespace UMI_Sensor {
 //% color="#006400" weight=20 icon="\uf185"
 namespace UMI_Robot {
 
-    let umistrip: UMI_RGB.Strip;
-    umistrip = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
-
     const PCA9685_ADD = 0x40
     const MODE1 = 0x00
     const MODE2 = 0x01
