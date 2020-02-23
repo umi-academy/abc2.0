@@ -19,14 +19,14 @@ namespace UMI_Sensor {
 
         // send pulse
         pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
-        pins.digitalWritePin(DigitalPin.P14, 0);
+        pins.digitalWritePin(DigitalPin.P12, 0);
         control.waitMicros(2);
-        pins.digitalWritePin(DigitalPin.P14, 1);
+        pins.digitalWritePin(DigitalPin.P12, 1);
         control.waitMicros(15);
-        pins.digitalWritePin(DigitalPin.P14, 0);
+        pins.digitalWritePin(DigitalPin.P12, 0);
 
         // read pulse
-        let d = pins.pulseIn(DigitalPin.P15, PulseValue.High, 43200);
+        let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
         return  Math.floor(d / 58);
     }
 }
@@ -275,7 +275,7 @@ namespace UMI_Robot {
         return yahStrip;  
     }
 
-    //% blockId=mbit_Servo_Car block="|%num|angle %value"
+    //% blockId=mbit_Servo_Car block="Set|%num|angle %value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
