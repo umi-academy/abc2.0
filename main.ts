@@ -47,7 +47,7 @@ namespace UMI_Sensor {
        		// read pulse
        		d = pins.pulseIn(DigitalPin.P1, PulseValue.High, 43200);
     	}
-    	if (port == enSensor.sensor1) {
+    	if (port == enSensor.sensor2) {
         	pins.setPull(DigitalPin.P15, PinPullMode.PullNone);
         	pins.digitalWritePin(DigitalPin.P15, 0);
         	control.waitMicros(5);
