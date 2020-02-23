@@ -65,20 +65,20 @@ namespace UMI_Sensor {
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function digitalRead(port: enSensor): number {
-    	let digital;
+    	let digi;
     	if (port == enSensor.sensor1) {
         	pins.setPull(DigitalPin.P12, PinPullMode.PullUp);
-        	digital = digital.digitalReadPin(DigitalPin.P12);
+        	digi = pins.digitalReadPin(DigitalPin.P12);
     	}
     	if (port == enSensor.sensor2) {
         	pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
-        	digital = digital.digitalReadPin(DigitalPin.P14);
+        	digi = pins.digitalReadPin(DigitalPin.P14);
     	}
     	if (port == enSensor.sensor3) {
         	pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
-        	digital = digital.digitalReadPin(DigitalPin.P15);
+        	digi = pins.digitalReadPin(DigitalPin.P15);
     	}
-        return digital;
+        return digi;
     }
 }
 
