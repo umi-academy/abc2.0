@@ -26,7 +26,7 @@ namespace UMI_Sensor {
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Ultrasonic_Car(port: enSensor): number {
-    	if (port == 1)
+    	if (port == enSensor.sensor1)
     	{
     		// send pulse
         	pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
@@ -40,7 +40,7 @@ namespace UMI_Sensor {
         	let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
         	return  Math.floor(d / 58);
     	}
-    	if (port == 2)
+    	if (port == enSensor.sensor2)
     	{
     		// send pulse
         	pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
@@ -54,7 +54,7 @@ namespace UMI_Sensor {
         	let d = pins.pulseIn(DigitalPin.P1, PulseValue.High, 43200);
         	return  Math.floor(d / 58);
     	}
-    	if (port == 3)
+    	if (port == enSensor.sensor3)
     	{
     		// send pulse
         	pins.setPull(DigitalPin.P15, PinPullMode.PullNone);
