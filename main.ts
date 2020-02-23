@@ -201,7 +201,7 @@ namespace UMI_Robot {
             	}
             	break;
             }
-            case enMotor.MOTOR_1B: {
+            case enMotor.MOTOR_2A: {
             	if (state == MotorState.Car_SpinLeft) {
             		setPwm(10, 0, 0);
         			setPwm(11, 0, speed);
@@ -209,6 +209,28 @@ namespace UMI_Robot {
             	if (state == MotorState.Car_SpinRight) {
             		setPwm(10, 0, speed);
         			setPwm(11, 0, 0);
+            	}
+            	break;
+            }
+            case enMotor.MOTOR_1B: {
+            	if (state == MotorState.Car_SpinLeft) {
+            		setPwm(4, 0, 0);
+        			setPwm(5, 0, speed);
+            	}
+            	if (state == MotorState.Car_SpinRight) {
+            		setPwm(4, 0, speed);
+        			setPwm(5, 0, 0);
+            	}
+            	break;
+            }
+            case enMotor.MOTOR_2B: {
+            	if (state == MotorState.Car_SpinLeft) {
+            		setPwm(8, 0, 0);
+        			setPwm(9, 0, speed);
+            	}
+            	if (state == MotorState.Car_SpinRight) {
+            		setPwm(8, 0, speed);
+        			setPwm(9, 0, 0);
             	}
             	break;
             }
