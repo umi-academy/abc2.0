@@ -95,10 +95,10 @@ namespace UMI_Sensor {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function analogRead(port: enAnaSensor): number {
     	let analog;
-    	if (port == enSensor.sensor2) {
+    	if (port == enAnaSensor.sensor2) {
         	analog = pins.analogReadPin(AnalogPin.P1);
     	}
-    	if (port == enSensor.sensor3) {
+    	if (port == enAnaSensor.sensor3) {
         	analog = pins.analogReadPin(AnalogPin.P2);
     	}
         return analog;
