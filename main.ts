@@ -10,6 +10,8 @@ load dependency
 //% color="#87CEEB" weight=24 icon="\uf1b6"
 namespace UMI_Sensor {
 
+	let d; //sonar
+
 	export enum enSensor {
 
         //% blockId="sensor1" block="SENSOR_1"
@@ -26,7 +28,6 @@ namespace UMI_Sensor {
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Ultrasonic_Car(port: enSensor): number {
-    	let d;
     	if (port == enSensor.sensor1) {
         	pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
         	pins.digitalWritePin(DigitalPin.P12, 0);
