@@ -4,9 +4,13 @@
     "description": "Extension for ABC Maker V2",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "Mbit_IR":  "github:umi-academy/bit-ir"
+        "core": "*"
 	
+
+    },
+    "cppDependencies": {
+        "Mbit_IR":  "github:umi-academy/bit-ir"
+    
 
     },
     "files": [
