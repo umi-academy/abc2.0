@@ -129,38 +129,14 @@ namespace UMI_Robot {
     const PRESCALE = 0xFE
 
     let initialized = false
-    let yahStrip: neopixel.Strip;
-
-    export enum enColor {
-
-        //% blockId="OFF" block="off"
-        OFF = 0,
-        //% blockId="Red" block="red"
-        Red,
-        //% blockId="Green" block="green"
-        Green,
-        //% blockId="Blue" block="blue"
-        Blue,
-        //% blockId="White" block="white"
-        White,
-        //% blockId="Cyan" block="cyan"
-        Cyan,
-        //% blockId="Pinkish" block="magenta"
-        Pinkish,
-        //% blockId="Yellow" block="yellow"
-        Yellow,
-
-    }
 
     export enum enLineState {
         //% blockId="White" block="white"
         White = 0,
         //% blockId="Black" block="black"
         Black = 1
-
     }
     
-
     
     export enum enServo {
         
@@ -319,19 +295,6 @@ namespace UMI_Robot {
             	break;
             }
         }
-    }
-
-    //% blockId=mbit_RGB_Program block="All 8 RGB LED"
-    //% weight=99
-    //% blockGap=10
-    //% color="#C814B8"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Program(): neopixel.Strip {
-         
-        if (!yahStrip) {
-            yahStrip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
-        }
-        return yahStrip;  
     }
 
     //% blockId=mbit_MotorCtrl block="Set|%motor||%index|"
