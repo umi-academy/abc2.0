@@ -279,7 +279,6 @@ namespace UMI_Robot {
     //% blockGap=10
     //% speed.min=0 speed.max=255
     //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=20
     export function MotorCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
         Motor_run(motor, index, speed);
     }
