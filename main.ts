@@ -442,7 +442,7 @@ namespace UMI_Robot {
             case enMusic.power_down: music.beginMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.Once); break;
         }
     }
-    //% blockId=mbit_Servo_Car block="Set| %num|value %value"
+    //% blockId=mbit_Servo_Car block="Set|%num|value %value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
