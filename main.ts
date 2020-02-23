@@ -123,22 +123,6 @@ namespace UMI_Robot {
         //% blockId="Motor_SpinRight" block="Spin Right"
         Car_SpinRight = 2
     }
-    export enum CarState {
-        //% blockId="Car_Run" block="forward"
-        Car_Run = 1,
-        //% blockId="Car_Back" block="back"
-        Car_Back = 2,
-        //% blockId="Car_Left" block="turn left"
-        Car_Left = 3,
-        //% blockId="Car_Right" block="turn right"
-        Car_Right = 4,
-        //% blockId="Car_Stop" block="stop"
-        Car_Stop = 5,
-        //% blockId="Car_SpinLeft" block="rotate left"
-        Car_SpinLeft = 6,
-        //% blockId="Car_SpinRight" block="rotate right"
-        Car_SpinRight = 7
-    }
 
     function i2cwrite(addr: number, reg: number, value: number) {
         let buf = pins.createBuffer(2)
@@ -203,7 +187,7 @@ namespace UMI_Robot {
             speed = 4095
         }
         if (speed <= 350) {
-            speed = 350
+            speed = 0
         }
         switch (motor) {
             case enMotor.MOTOR_1A: {
@@ -217,126 +201,18 @@ namespace UMI_Robot {
             	}
             	break;
             }
+            case enMotor.MOTOR_1B: {
+            	if (state == MotorState.Car_SpinLeft) {
+            		setPwm(10, 0, 0);
+        			setPwm(11, 0, speed);
+            	}
+            	if (state == MotorState.Car_SpinRight) {
+            		setPwm(10, 0, speed);
+        			setPwm(11, 0, 0);
+            	}
+            	break;
+            }
         }
-    }
-
-
-    function Car_run(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }
-
-        setPwm(6, 0, speed1);
-        setPwm(7, 0, 0);
-
-        setPwm(10, 0, speed2);
-        setPwm(11, 0, 0);
-        //pins.digitalWritePin(DigitalPin.P16, 1);
-       // pins.analogWritePin(AnalogPin.P1, 1023-speed); //速度控制
-
-       // pins.analogWritePin(AnalogPin.P0, speed);//速度控制
-       // pins.digitalWritePin(DigitalPin.P8, 0);
-    }
-
-    function Car_back(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }
-
-        setPwm(6, 0, 0);
-        setPwm(7, 0, speed1);
-
-        setPwm(10, 0, 0);
-        setPwm(11, 0, speed2);
-
-        //pins.digitalWritePin(DigitalPin.P16, 0);
-        //pins.analogWritePin(AnalogPin.P1, speed); //速度控制
-
-        //pins.analogWritePin(AnalogPin.P0, 1023 - speed);//速度控制
-        //pins.digitalWritePin(DigitalPin.P8, 1);
-    }
-
-    function Car_left(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }
-        
-        setPwm(6, 0, speed1);
-        setPwm(7, 0, 0);
-
-        setPwm(10, 0, speed2);
-        setPwm(11, 0, 0);
-
-        //pins.analogWritePin(AnalogPin.P0, speed);
-        //pins.digitalWritePin(DigitalPin.P8, 0);
-
-        //pins.digitalWritePin(DigitalPin.P16, 0);
-        //pins.digitalWritePin(DigitalPin.P1, 0);
-    }
-
-    function Car_right(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }
-        
-        setPwm(6, 0, speed1);
-        setPwm(7, 0, 0);
-
-        setPwm(10, 0, speed2);
-        setPwm(11, 0, 0);
-        //pins.digitalWritePin(DigitalPin.P0, 0);
-        //pins.digitalWritePin(DigitalPin.P8, 0);
-
-        //pins.digitalWritePin(DigitalPin.P16, 1);
-       // pins.analogWritePin(AnalogPin.P1, 1023 - speed);
     }
 
     function Car_stop() {
@@ -346,72 +222,7 @@ namespace UMI_Robot {
 
         setPwm(10, 0, 0);
         setPwm(11, 0, 0);
-        //pins.digitalWritePin(DigitalPin.P0, 0);
-        //pins.digitalWritePin(DigitalPin.P8, 0);
-        //pins.digitalWritePin(DigitalPin.P16, 0);
-        //pins.digitalWritePin(DigitalPin.P1, 0);
     }
-
-    function Car_spinleft(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }        
-        
-        setPwm(6, 0, 0);
-        setPwm(7, 0, speed1);
-
-        setPwm(10, 0, speed2);
-        setPwm(11, 0, 0);
-
-        //pins.analogWritePin(AnalogPin.P0, speed);
-        //pins.digitalWritePin(DigitalPin.P8, 0);
-
-        //pins.digitalWritePin(DigitalPin.P16, 0);
-        //pins.analogWritePin(AnalogPin.P1, speed);
-    } 
-
-    function Car_spinright(speed1: number, speed2: number) {
-
-        speed1 = speed1 * 16; // map 350 to 4096
-        speed2 = speed2 * 16;
-        if (speed1 >= 4096) {
-            speed1 = 4095
-        }
-        if (speed1 <= 350) {
-            speed1 = 350
-        }
-        if (speed2 >= 4096) {
-            speed2 = 4095
-        }
-        if (speed2 <= 350) {
-            speed2 = 350
-        }    
-            
-        setPwm(6, 0, speed1);
-        setPwm(7, 0, 0);
-
-        setPwm(10, 0, 0);
-        setPwm(11, 0, speed2);
-        //pins.analogWritePin(AnalogPin.P0, 1023-speed);
-        //pins.digitalWritePin(DigitalPin.P8, 1);
-
-        //pins.digitalWritePin(DigitalPin.P16, 1);
-        //pins.analogWritePin(AnalogPin.P1, 1023-speed);
-
-    }
-
 
     //% blockId=mbit_RGB_Program block="All 8 RGB LED"
     //% weight=99
@@ -440,6 +251,7 @@ namespace UMI_Robot {
         setPwm(num, 0, pwm);
 
     }
+
     //% blockId=mbit_CarCtrl block="CarCtrl|%index"
     //% weight=93
     //% blockGap=10
@@ -456,23 +268,7 @@ namespace UMI_Robot {
             case CarState.Car_SpinRight: Car_spinright(255, 255); break;
         }
     }
-    //% blockId=mbit_CarCtrlSpeed block="CarCtrlSpeed|%index|speed %speed"
-    //% weight=92
-    //% blockGap=10
-    //% speed.min=0 speed.max=255
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function CarCtrlSpeed(index: CarState, speed: number): void {
-        switch (index) {
-            case CarState.Car_Run: Car_run(speed, speed); break;
-            case CarState.Car_Back: Car_back(speed, speed); break;
-            case CarState.Car_Left: Car_left(speed, speed); break;
-            case CarState.Car_Right: Car_right(speed, speed); break;
-            case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(speed, speed); break;
-            case CarState.Car_SpinRight: Car_spinright(speed, speed); break;
-        }
-    }
+
     //% blockId=mbit_MotorCtrlSpeed block="Set|%motor||%index|with speed %speed"
     //% weight=92
     //% blockGap=10
@@ -481,22 +277,5 @@ namespace UMI_Robot {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function MotorCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
         Motor_run(motor, index, speed);
-    }
-    //% blockId=mbit_CarCtrlSpeed2 block="CarCtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
-    //% weight=91
-    //% blockGap=10
-    //% speed1.min=0 speed1.max=255 speed2.min=0 speed2.max=255
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function CarCtrlSpeed2(index: CarState, speed1: number, speed2: number): void {
-        switch (index) {
-            case CarState.Car_Run: Car_run(speed1, speed2); break;
-            case CarState.Car_Back: Car_back(speed1, speed2); break;
-            case CarState.Car_Left: Car_left(speed1, speed2); break;
-            case CarState.Car_Right: Car_right(speed1, speed2); break;
-            case CarState.Car_Stop: Car_stop(); break;
-            case CarState.Car_SpinLeft: Car_spinleft(speed1, speed2); break;
-            case CarState.Car_SpinRight: Car_spinright(speed1, speed2); break;
-        }
     }
 }
