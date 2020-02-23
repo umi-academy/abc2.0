@@ -290,7 +290,7 @@ namespace UMI_Robot {
 
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed|%motor||%index|"
+    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed |%motor||%index|"
     //% weight=4
     //% blockGap=10
     //% speed.min=0 speed.max=255
