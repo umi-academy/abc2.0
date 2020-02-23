@@ -9,9 +9,6 @@ load dependency
 
 //% color="#87CEEB" weight=24 icon="\uf1b6"
 namespace UMI_Sensor {
-
-	let d;
-
 	export enum enSensor {
 
         //% blockId="sensor1" block="SENSOR_1"
@@ -36,7 +33,7 @@ namespace UMI_Sensor {
         	control.waitMicros(15);
         	pins.digitalWritePin(DigitalPin.P12, 0);
        		// read pulse
-       		d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
+       		let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
     	}
     	if (port == enSensor.sensor2) {
         	pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
@@ -46,7 +43,7 @@ namespace UMI_Sensor {
         	control.waitMicros(15);
         	pins.digitalWritePin(DigitalPin.P14, 0);
        		// read pulse
-       		d = pins.pulseIn(DigitalPin.P1, PulseValue.High, 43200);
+       		let d = pins.pulseIn(DigitalPin.P1, PulseValue.High, 43200);
     	}
     	if (port == enSensor.sensor2) {
         	pins.setPull(DigitalPin.P15, PinPullMode.PullNone);
@@ -56,7 +53,7 @@ namespace UMI_Sensor {
         	control.waitMicros(15);
         	pins.digitalWritePin(DigitalPin.P15, 0);
        		// read pulse
-       		d = pins.pulseIn(DigitalPin.P2, PulseValue.High, 43200);
+       		let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, 43200);
     	}
         return  Math.floor(d / 58);
     }
