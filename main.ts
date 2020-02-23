@@ -8,7 +8,7 @@ load dependency
 
 
 //% color="#87CEEB" weight=24 icon="\uf1b6"
-namespace UMI_Bit_Sensor {
+namespace UMI_Sensor {
    
     //% blockId=mbit_ultrasonic_car block="ultrasonic return distance (cm)"
     //% color="#006400"
@@ -33,7 +33,7 @@ namespace UMI_Bit_Sensor {
 
 
 //% color="#006400" weight=20 icon="\uf185"
-namespace UMI_Bit_Robot {
+namespace UMI_Robot {
 
     const PCA9685_ADD = 0x40
     const MODE1 = 0x00
