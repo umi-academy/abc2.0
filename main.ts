@@ -18,6 +18,13 @@ namespace UMI_Sensor {
         //% blockId="sensor3" block="SENSOR_3"
         sensor3 = 3,
     }
+
+    export enum enAnaSensor {
+        //% blockId="sensor2" block="SENSOR_2"
+        sensor2 = 2,
+        //% blockId="sensor3" block="SENSOR_3"
+        sensor3 = 3,
+    }
    
     //% blockId=mbit_ultrasonic_car block="read ultrasonic sensor port|%port|(cm)"
     //% color="#006400"
@@ -86,7 +93,7 @@ namespace UMI_Sensor {
     //% weight=98
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function analogRead(port: enSensor): number {
+    export function analogRead(port: enAnaSensor): number {
     	let analog;
     	if (port == enSensor.sensor2) {
         	analog = pins.analogReadPin(AnalogPin.P1);
