@@ -110,6 +110,19 @@ namespace UMI_Robot {
         SERVO_3 = 13,
         SERVO_4 = 14
     }
+    export enum enMotor {
+        
+        MOTOR_1A = 1,
+        MOTOR_1B = 2,
+        MOTOR_2A = 3,
+        MOTOR_2B = 4
+    }
+    export enum MotorState {
+        //% blockId="Motor_SpinLeft" block="Spin Left"
+        Car_SpinLeft = 1,
+        //% blockId="Motor_SpinRight" block="Spin Right"
+        Car_SpinRight = 2
+    }
     export enum CarState {
         //% blockId="Car_Run" block="forward"
         Car_Run = 1,
@@ -434,6 +447,27 @@ namespace UMI_Robot {
             case CarState.Car_Stop: Car_stop(); break;
             case CarState.Car_SpinLeft: Car_spinleft(speed, speed); break;
             case CarState.Car_SpinRight: Car_spinright(speed, speed); break;
+        }
+    }
+    //% blockId=mbit_MotorCtrlSpeed block="|%motor|run|%index|with speed %speed"
+    //% weight=92
+    //% blockGap=10
+    //% speed.min=0 speed.max=255
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function CarCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
+        switch (motor) {
+            case enMotor.MOTOR_1A: {
+            	if (index == MotorState.Car_SpinLeft) {
+            		setPwm(6, 0, 0);
+        			setPwm(7, 0, speed);
+            	}
+            	if (index == MotorState.Car_SpinRight) {
+            		setPwm(6, 0, speed);
+        			setPwm(7, 0, 0);
+            	}
+            	break;
+            }
         }
     }
     //% blockId=mbit_CarCtrlSpeed2 block="CarCtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
