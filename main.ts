@@ -10,7 +10,7 @@ load dependency
 //% color="#87CEEB" weight=24 icon="\uf1b6"
 namespace UMI_Sensor {
 
-	let d; //sonar
+	let d;
 
 	export enum enSensor {
 
