@@ -275,7 +275,7 @@ namespace UMI_Robot {
     }
 
     //% blockId=mbit_MotorCtrlSpeed block="Set|%motor||%index|with speed %speed"
-    //% weight=92
+    //% weight=120
     //% blockGap=10
     //% speed.min=0 speed.max=255
     //% color="#006400"
