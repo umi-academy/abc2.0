@@ -80,6 +80,22 @@ namespace UMI_Sensor {
     	}
         return digi;
     }
+
+    //% blockId=mbit_analog block="read analog port|%port|"
+    //% color="#006400"
+    //% weight=98
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function digitalRead(port: enSensor): number {
+    	let analog;
+    	if (port == enSensor.sensor2) {
+        	analog = pins.analogReadPin(AnalogPin.P1);
+    	}
+    	if (port == enSensor.sensor3) {
+        	analog = pins.analogReadPin(AnalogPin.P2);
+    	}
+        return analog;
+    }
 }
 
 
