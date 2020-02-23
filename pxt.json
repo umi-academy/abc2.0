@@ -9,6 +9,7 @@
 
     },
     "cppDependencies": {
+        "core": "*",
         "Mbit_IR":  "github:umi-academy/bit-ir"
     
 
