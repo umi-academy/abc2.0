@@ -68,15 +68,15 @@ namespace UMI_Sensor {
     	let digital;
     	if (port == enSensor.sensor1) {
         	pins.setPull(DigitalPin.P12, PinPullMode.PullUp);
-        	digital.digitalReadPin(DigitalPin.P12);
+        	digital = digital.digitalReadPin(DigitalPin.P12);
     	}
     	if (port == enSensor.sensor2) {
         	pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
-        	digital.digitalReadPin(DigitalPin.P14);
+        	digital = digital.digitalReadPin(DigitalPin.P14);
     	}
     	if (port == enSensor.sensor3) {
         	pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
-        	digital.digitalReadPin(DigitalPin.P15);
+        	digital = digital.digitalReadPin(DigitalPin.P15);
     	}
         return digital;
     }
