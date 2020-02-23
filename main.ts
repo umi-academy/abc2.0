@@ -71,7 +71,7 @@ namespace UMI_Sensor {
     //% weight=98
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function digitalRead(port: enSensor): number {
+    export function digitalRead(port: enSensor): boolean {
     	let digi;
     	if (port == enSensor.sensor1) {
         	pins.setPull(DigitalPin.P12, PinPullMode.PullUp);
