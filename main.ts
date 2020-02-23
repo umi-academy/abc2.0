@@ -214,12 +214,12 @@ namespace UMI_Robot {
             }
             case enMotor.MOTOR_1B: {
             	if (state == MotorState.Car_SpinLeft) {
-            		setPwm(4, 0, 0);
-        			setPwm(5, 0, speed);
+            		setPwm(5, 0, 0);
+        			setPwm(4, 0, speed);
             	}
             	if (state == MotorState.Car_SpinRight) {
-            		setPwm(4, 0, speed);
-        			setPwm(5, 0, 0);
+            		setPwm(5, 0, speed);
+        			setPwm(4, 0, 0);
             	}
             	break;
             }
@@ -277,7 +277,7 @@ namespace UMI_Robot {
     //% blockId=mbit_MotorCtrlSpeed block="Set|%motor||%index|with speed %speed"
     //% weight=92
     //% blockGap=10
-    //% speed.min=0 speed.max=255
+    //% speed.min=255 speed.max=0
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function MotorCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
