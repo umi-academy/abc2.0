@@ -259,7 +259,7 @@ namespace UMI_Robot {
         return yahStrip;  
     }
 
-    //% blockId=mbit_Servo_Car block="Set|%num|angle %value"
+    //% blockId=mbit_Servo_Car block="|%num|angle %value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
@@ -274,7 +274,7 @@ namespace UMI_Robot {
 
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="Set|%motor||%index|with speed %speed"
+    //% blockId=mbit_MotorCtrlSpeed block="|%motor||%index|with speed %speed"
     //% weight=4
     //% blockGap=10
     //% speed.min=0 speed.max=255
@@ -282,5 +282,22 @@ namespace UMI_Robot {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
     export function MotorCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
         Motor_run(motor, index, speed);
+    }
+
+    //% blockId=mbit_MotorCtrl block="|%motor||%index|"
+    //% weight=4
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    export function MotorCtrlSpeed(motor: enMotor, index: MotorState): void {
+        Motor_run(motor, index, 255);
+    }
+    //% blockId=mbit_MotorStop block="|%motor|stop"
+    //% weight=4
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    export function MotorCtrlSpeed(motor: enMotor): void {
+        Motor_run(motor, 1, 255);
     }
 }
