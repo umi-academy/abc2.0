@@ -196,6 +196,30 @@ namespace UMI_Robot {
         pins.i2cWriteBuffer(PCA9685_ADD, buf);
     }
 
+    function Motor_run(motor: number, state: number, speed: number) {
+
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+        switch (motor) {
+            case enMotor.MOTOR_1A: {
+            	if (state == MotorState.Car_SpinLeft) {
+            		setPwm(6, 0, 0);
+        			setPwm(7, 0, speed);
+            	}
+            	if (state == MotorState.Car_SpinRight) {
+            		setPwm(6, 0, speed);
+        			setPwm(7, 0, 0);
+            	}
+            	break;
+            }
+        }
+    }
+
 
     function Car_run(speed1: number, speed2: number) {
 
@@ -449,26 +473,14 @@ namespace UMI_Robot {
             case CarState.Car_SpinRight: Car_spinright(speed, speed); break;
         }
     }
-    //% blockId=mbit_MotorCtrlSpeed block="|%motor|run|%index|with speed %speed"
+    //% blockId=mbit_MotorCtrlSpeed block="Set|%motor||%index|with speed %speed"
     //% weight=92
     //% blockGap=10
     //% speed.min=0 speed.max=255
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
     export function MotorCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
-        switch (motor) {
-            case enMotor.MOTOR_1A: {
-            	if (index == MotorState.Car_SpinLeft) {
-            		setPwm(6, 0, 0);
-        			setPwm(7, 0, speed);
-            	}
-            	if (index == MotorState.Car_SpinRight) {
-            		setPwm(6, 0, speed);
-        			setPwm(7, 0, 0);
-            	}
-            	break;
-            }
-        }
+        Motor_run(motor, index, speed);
     }
     //% blockId=mbit_CarCtrlSpeed2 block="CarCtrlSpeed2|%index|speed1 %speed1|speed2 %speed2"
     //% weight=91
