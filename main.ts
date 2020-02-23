@@ -152,14 +152,6 @@ namespace UMI_Robot {
 
     }
 
-    export enum enPos {
-
-        //% blockId="LeftState" block="left state"
-        LeftState = 0,
-        //% blockId="RightState" block="right state"
-        RightState = 1
-    }
-
     export enum enLineState {
         //% blockId="White" block="white"
         White = 0,
@@ -168,13 +160,6 @@ namespace UMI_Robot {
 
     }
     
-    export enum enAvoidState {
-        //% blockId="OBSTACLE" block="with obstacles"
-        OBSTACLE = 0,
-        //% blockId="NOOBSTACLE" block="without obstacles"
-        NOOBSTACLE = 1
-
-    }
 
     
     export enum enServo {
@@ -358,7 +343,7 @@ namespace UMI_Robot {
         Motor_run(motor, index, 255);
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed|%motor||%index|"
+    //% blockId=mbit_MotorCtrlSpeed block="Speed control lalal %speed|%motor||%index|"
     //% weight=4
     //% blockGap=10
     //% speed.min=0 speed.max=255
