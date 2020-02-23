@@ -26,16 +26,17 @@ namespace UMI_Sensor {
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function Ultrasonic_Car(port: enSensor): number {
-        		pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
-        		pins.digitalWritePin(DigitalPin.P12, 0);
-        		control.waitMicros(2);
-        		pins.digitalWritePin(DigitalPin.P12, 1);
-        		control.waitMicros(15);
-        		pins.digitalWritePin(DigitalPin.P12, 0);
-
-        		// read pulse
-        		let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
-    		
+    	let d = 0;
+    	if (port == enSensor.sensor1){
+        	pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
+        	pins.digitalWritePin(DigitalPin.P12, 0);
+        	control.waitMicros(2);
+        	pins.digitalWritePin(DigitalPin.P12, 1);
+        	control.waitMicros(15);
+        	pins.digitalWritePin(DigitalPin.P12, 0);
+       		// read pulse
+       		d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
+    	}
         return  Math.floor(d / 58);
     }
 }
