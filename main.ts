@@ -9,25 +9,65 @@ load dependency
 
 //% color="#87CEEB" weight=24 icon="\uf1b6"
 namespace UMI_Sensor {
+
+	export enum enSensor {
+
+        //% blockId="sensor1" block="SENSOR_1"
+        sensor1 = 1,
+        //% blockId="sensor2" block="SENSOR_2"
+        sensor1 = 2,
+        //% blockId="sensor3" block="SENSOR_3"
+        sensor1 = 3,
+    }
    
-    //% blockId=mbit_ultrasonic_car block="ultrasonic return distance (cm)"
+    //% blockId=mbit_ultrasonic_car block="read ultrasonic sensor port|%port|"
     //% color="#006400"
     //% weight=98
     //% blockGap=10
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Ultrasonic_Car(): number {
+    export function Ultrasonic_Car(port: enSensor): number {
+    	if (port == 1)
+    	{
+    		// send pulse
+        	pins.setPull(DigitalPin.P12, PinPullMode.PullNone);
+        	pins.digitalWritePin(DigitalPin.P12, 0);
+        	control.waitMicros(2);
+        	pins.digitalWritePin(DigitalPin.P12, 1);
+        	control.waitMicros(15);
+        	pins.digitalWritePin(DigitalPin.P12, 0);
 
-        // send pulse
-        pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
-        pins.digitalWritePin(DigitalPin.P12, 0);
-        control.waitMicros(2);
-        pins.digitalWritePin(DigitalPin.P12, 1);
-        control.waitMicros(15);
-        pins.digitalWritePin(DigitalPin.P12, 0);
+        	// read pulse
+        	let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
+        	return  Math.floor(d / 58);
+    	}
+    	if (port == 2)
+    	{
+    		// send pulse
+        	pins.setPull(DigitalPin.P14, PinPullMode.PullNone);
+        	pins.digitalWritePin(DigitalPin.P14, 0);
+        	control.waitMicros(2);
+        	pins.digitalWritePin(DigitalPin.P14, 1);
+        	control.waitMicros(15);
+        	pins.digitalWritePin(DigitalPin.P14, 0);
 
-        // read pulse
-        let d = pins.pulseIn(DigitalPin.P13, PulseValue.High, 43200);
-        return  Math.floor(d / 58);
+        	// read pulse
+        	let d = pins.pulseIn(DigitalPin.P1, PulseValue.High, 43200);
+        	return  Math.floor(d / 58);
+    	}
+    	if (port == 3)
+    	{
+    		// send pulse
+        	pins.setPull(DigitalPin.P15, PinPullMode.PullNone);
+        	pins.digitalWritePin(DigitalPin.P15, 0);
+        	control.waitMicros(2);
+        	pins.digitalWritePin(DigitalPin.P15, 1);
+        	control.waitMicros(15);
+        	pins.digitalWritePin(DigitalPin.P15, 0);
+
+        	// read pulse
+        	let d = pins.pulseIn(DigitalPin.P2, PulseValue.High, 43200);
+        	return  Math.floor(d / 58);
+    	}
     }
 }
 
