@@ -19,7 +19,7 @@ namespace UMI_Sensor {
         sensor3 = 3,
     }
    
-    //% blockId=mbit_ultrasonic_car block="read ultrasonic sensor port|%port|"
+    //% blockId=mbit_ultrasonic_car block="read ultrasonic sensor port|%port|(cm)"
     //% color="#006400"
     //% weight=98
     //% blockGap=10
@@ -57,6 +57,28 @@ namespace UMI_Sensor {
        		d = pins.pulseIn(DigitalPin.P2, PulseValue.High, 43200);
     	}
         return  Math.floor(d / 58);
+    }
+
+    //% blockId=mbit_digtal block="read digital port|%port|"
+    //% color="#006400"
+    //% weight=98
+    //% blockGap=10
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function digitalRead(port: enSensor): number {
+    	let digital;
+    	if (port == enSensor.sensor1) {
+        	pins.setPull(DigitalPin.P12, PinPullMode.PullUp);
+        	digital.digitalReadPin(DigitalPin.P12);
+    	}
+    	if (port == enSensor.sensor2) {
+        	pins.setPull(DigitalPin.P14, PinPullMode.PullUp);
+        	digital.digitalReadPin(DigitalPin.P14);
+    	}
+    	if (port == enSensor.sensor3) {
+        	pins.setPull(DigitalPin.P15, PinPullMode.PullUp);
+        	digital.digitalReadPin(DigitalPin.P15);
+    	}
+        return digital;
     }
 }
 
@@ -304,6 +326,25 @@ namespace UMI_Robot {
         return yahStrip;  
     }
 
+    //% blockId=mbit_MotorCtrl block="Set|%motor||%index|"
+    //% weight=4
+    //% blockGap=10
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    export function MotorCtrl(motor: enMotor, index: Motor_State): void {
+        Motor_run(motor, index, 255);
+    }
+
+    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed|%motor||%index|"
+    //% weight=4
+    //% blockGap=10
+    //% speed.min=0 speed.max=255
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
+    export function MotorCtrlSpeed(speed: number, motor: enMotor, index: MotorState): void {
+        Motor_run(motor, index, speed);
+    }
+
     //% blockId=mbit_Servo_Car block="Set|%num|angle %value"
     //% weight=96
     //% blockGap=10
@@ -319,22 +360,4 @@ namespace UMI_Robot {
 
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed|%motor||%index|"
-    //% weight=4
-    //% blockGap=10
-    //% speed.min=0 speed.max=255
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function MotorCtrlSpeed(speed: number, motor: enMotor, index: MotorState): void {
-        Motor_run(motor, index, speed);
-    }
-
-    //% blockId=mbit_MotorCtrl block="Set|%motor||%index|"
-    //% weight=4
-    //% blockGap=10
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function MotorCtrl(motor: enMotor, index: Motor_State): void {
-        Motor_run(motor, index, 255);
-    }
 }
