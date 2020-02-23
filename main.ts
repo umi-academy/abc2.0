@@ -15,9 +15,9 @@ namespace UMI_Sensor {
         //% blockId="sensor1" block="SENSOR_1"
         sensor1 = 1,
         //% blockId="sensor2" block="SENSOR_2"
-        sensor1 = 2,
+        sensor2 = 2,
         //% blockId="sensor3" block="SENSOR_3"
-        sensor1 = 3,
+        sensor3 = 3,
     }
    
     //% blockId=mbit_ultrasonic_car block="read ultrasonic sensor port|%port|"
