@@ -399,7 +399,7 @@ namespace UMI_Robot {
     }
 
 
-    //% blockId=mbit_RGB_Program block="RGB_Program"
+    //% blockId=mbit_RGB_Program block="All 8 RGB LED"
     //% weight=99
     //% blockGap=10
     //% color="#C814B8"
@@ -413,7 +413,7 @@ namespace UMI_Robot {
     }
 
 
-    //% blockId=mbit_Music_Car block="Music|%index"
+    //% blockId=mbit_Music_Car block="Play music|%index"
     //% weight=97
     //% blockGap=10
     //% color="#006400"
@@ -442,7 +442,7 @@ namespace UMI_Robot {
             case enMusic.power_down: music.beginMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.Once); break;
         }
     }
-    //% blockId=mbit_Servo_Car block="Servo|num %num|value %value"
+    //% blockId=mbit_Servo_Car block="Set|num %num|angle %value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
