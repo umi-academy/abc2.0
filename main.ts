@@ -333,12 +333,7 @@ namespace UMI_Robot {
 
     }
 
-    //% blockId=mbit_RGB_Program block="RGB_Program"
-    //% weight=99
-    //% blockGap=10
-    //% color="#C814B8"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Program(): UMI_RGB.Strip {
+    function RGB_Car_Program(): UMI_RGB.Strip {
          
         if (!RGB_LED) {
             RGB_LED = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
