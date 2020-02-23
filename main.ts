@@ -290,13 +290,13 @@ namespace UMI_Robot {
 
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed |%motor||%index|"
+    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed|%motor||%index|"
     //% weight=4
     //% blockGap=10
     //% speed.min=0 speed.max=255
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function MotorCtrlSpeed(motor: enMotor, index: MotorState, speed: number): void {
+    export function MotorCtrlSpeed(speed: number, motor: enMotor, index: MotorState): void {
         Motor_run(motor, index, speed);
     }
 
