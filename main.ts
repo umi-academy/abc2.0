@@ -20,9 +20,9 @@ namespace UMI_Sensor {
     }
 
     export enum enAnaSensor {
-        //% blockId="sensor2" block="SENSOR_2"
+        //% blockId="sensorana2" block="SENSOR_2"
         sensor2 = 2,
-        //% blockId="sensor3" block="SENSOR_3"
+        //% blockId="sensorana3" block="SENSOR_3"
         sensor3 = 3,
     }
    
