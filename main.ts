@@ -124,6 +124,15 @@ namespace UMI_Robot {
         Car_SpinRight = 2
     }
 
+    export enum Motor_State {
+    	//% blockId="Motor_Stop" block="Stop"
+        Car_Stop = 0,
+        //% blockId="Motor_SpinLeft" block="Spin Left"
+        Car_SpinLeft = 1,
+        //% blockId="Motor_SpinRight" block="Spin Right"
+        Car_SpinRight = 2
+    }
+
     function i2cwrite(addr: number, reg: number, value: number) {
         let buf = pins.createBuffer(2)
         buf[0] = reg
@@ -199,6 +208,10 @@ namespace UMI_Robot {
             		setPwm(6, 0, speed);
         			setPwm(7, 0, 0);
             	}
+            	if (state == Motor_State.Car_Stop) {
+            		setPwm(6, 0, 0);
+        			setPwm(7, 0, 0);
+            	}
             	break;
             }
             case enMotor.MOTOR_2A: {
@@ -208,6 +221,10 @@ namespace UMI_Robot {
             	}
             	if (state == MotorState.Car_SpinRight) {
             		setPwm(10, 0, speed);
+        			setPwm(11, 0, 0);
+            	}
+            	if (state == Motor_State.Car_Stop) {
+            		setPwm(10, 0, 0);
         			setPwm(11, 0, 0);
             	}
             	break;
@@ -221,6 +238,10 @@ namespace UMI_Robot {
             		setPwm(5, 0, speed);
         			setPwm(4, 0, 0);
             	}
+            	if (state == Motor_State.Car_Stop) {
+            		setPwm(5, 0, 0);
+        			setPwm(4, 0, 0);
+            	}
             	break;
             }
             case enMotor.MOTOR_2B: {
@@ -232,18 +253,13 @@ namespace UMI_Robot {
             		setPwm(8, 0, speed);
         			setPwm(9, 0, 0);
             	}
+            	if (state == Motor_State.Car_Stop) {
+            		setPwm(8, 0, 0);
+        			setPwm(9, 0, 0);
+            	}
             	break;
             }
         }
-    }
-
-    function Car_stop() {
-       
-        setPwm(6, 0, 0);
-        setPwm(7, 0, 0);
-
-        setPwm(10, 0, 0);
-        setPwm(11, 0, 0);
     }
 
     //% blockId=mbit_RGB_Program block="All 8 RGB LED"
@@ -274,7 +290,7 @@ namespace UMI_Robot {
 
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="|%motor||%index|with speed %speed"
+    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed|%motor||%index|"
     //% weight=4
     //% blockGap=10
     //% speed.min=0 speed.max=255
@@ -284,20 +300,12 @@ namespace UMI_Robot {
         Motor_run(motor, index, speed);
     }
 
-    //% blockId=mbit_MotorCtrl block="|%motor||%index|"
+    //% blockId=mbit_MotorCtrl block="Set|%motor||%index|"
     //% weight=4
     //% blockGap=10
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function MotorCtrlSpeed(motor: enMotor, index: MotorState): void {
+    export function MotorCtrl(motor: enMotor, index: Motor_State): void {
         Motor_run(motor, index, 255);
-    }
-    //% blockId=mbit_MotorStop block="|%motor|stop"
-    //% weight=4
-    //% blockGap=10
-    //% color="#006400"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function MotorCtrlSpeed(motor: enMotor): void {
-        Motor_run(motor, 1, 255);
     }
 }
