@@ -129,7 +129,7 @@ namespace UMI_Robot {
     const PRESCALE = 0xFE
 
     let initialized = false
-    let RGB_LED: UMI_RGB.Strip;
+    let RGB_LED: neopixel.Strip;
 
     export enum enLineState {
         //% blockId="White" block="white"
