@@ -2,6 +2,7 @@
     "name": "mbit",
     "version": "0.0.1",
     "description": "Extension for ABC Maker V2",
+    "additionalFilePath": "github:umi-academy/neo",
     "license": "MIT",
     "dependencies": {
         "core": "*",
