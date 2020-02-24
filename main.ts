@@ -9,6 +9,7 @@ load dependency
 
 //% color="#87CEEB" weight=24 icon="\uf1b6"
 namespace UMI_Sensor {
+
 	export enum enSensor {
 
         //% blockId="sensor1" block="SENSOR_1"
@@ -129,6 +130,8 @@ namespace UMI_Robot {
     const PRESCALE = 0xFE
 
     let initialized = false
+
+    let RGB_main: UMI_RGB.Strip;
 
     export enum enLineState {
         //% blockId="White" block="white"
@@ -295,6 +298,19 @@ namespace UMI_Robot {
             	break;
             }
         }
+    }
+
+    //% blockId=mbit_RGB_Program block="RGB_Program"
+    //% weight=99
+    //% blockGap=10
+    //% color="#C814B8"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function RGB_Car_Program(): UMI_RGB.Strip {
+         
+        if (!RGB_main) {
+            RGB_main = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
+        }
+        return RGB_main;  
     }
 
     //% blockId=mbit_MotorCtrl block="Set|%motor||%index|"
