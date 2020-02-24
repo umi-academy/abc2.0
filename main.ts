@@ -132,6 +132,7 @@ namespace UMI_Robot {
     let initialized = false
 
     let RGB_main: UMI_RGB.Strip;
+    RGB_main = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
 
     export enum enLineState {
         //% blockId="White" block="white"
@@ -298,19 +299,6 @@ namespace UMI_Robot {
             	break;
             }
         }
-    }
-
-    //% blockId=mbit_RGB_Program block="RGB_Program"
-    //% weight=99
-    //% blockGap=10
-    //% color="#C814B8"
-    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function RGB_Car_Program(): UMI_RGB.Strip {
-         
-        if (!RGB_main) {
-            RGB_main = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
-        }
-        return RGB_main;  
     }
 
     //% blockId=mbit_MotorCtrl block="Set|%motor||%index|"
