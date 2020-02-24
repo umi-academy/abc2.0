@@ -131,8 +131,6 @@ namespace UMI_Robot {
 
     let initialized = false
 
-    let RGB_main: UMI_RGB.Strip;
-
     export enum enLineState {
         //% blockId="White" block="white"
         White = 0,
