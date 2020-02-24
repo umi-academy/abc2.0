@@ -4,8 +4,8 @@
     "description": "Extension for ABC Maker V2",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
         "Mbit_RGB": "github:umi-academy/neo",
+        "core": "*",
         "Mbit_IR":  "github:umi-academy/bit-ir"
 	
 
