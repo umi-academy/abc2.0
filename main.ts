@@ -132,7 +132,6 @@ namespace UMI_Robot {
     let initialized = false
 
     let RGB_main: UMI_RGB.Strip;
-    RGB_main = UMI_RGB.create(DigitalPin.P16, 8, NeoPixelMode.RGB);
 
     export enum enLineState {
         //% blockId="White" block="white"
