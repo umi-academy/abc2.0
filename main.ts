@@ -303,7 +303,7 @@ namespace UMI_Robot {
     //% blockGap=10
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    //% expandableArgumentMode="enabled"
+    //% expandableArgumentMode="disabled"
     export function MotorCtrl(motor: enMotor, index: Motor_State): void {
         Motor_run(motor, index, 255);
     }
@@ -314,7 +314,7 @@ namespace UMI_Robot {
     //% speed.min=0 speed.max=255
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    //% expandableArgumentMode="enabled"
+    //% expandableArgumentMode="disabled"
     export function MotorCtrlSpeed(speed: number, motor: enMotor, index: MotorState): void {
         Motor_run(motor, index, speed);
     }
