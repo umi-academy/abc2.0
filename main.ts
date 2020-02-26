@@ -298,23 +298,23 @@ namespace UMI_Robot {
         }
     }
 
-    //% blockId=mbit_MotorCtrl block="Set|%motor||%index|"
+    //% blockId=mbit_MotorCtrl block="Set %motor %index"
     //% weight=4
     //% blockGap=10
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    //% expandableArgumentMode="disabled"
+    //% expandableArgumentMode="enabled"
     export function MotorCtrl(motor: enMotor, index: Motor_State): void {
         Motor_run(motor, index, 255);
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="Speed control %speed|%motor||%index|"
+    //% blockId=mbit_MotorCtrlSpeed block="Set %motor %index with %speed"
     //% weight=4
     //% blockGap=10
     //% speed.min=0 speed.max=255
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    //% expandableArgumentMode="disabled"
+    //% expandableArgumentMode="enabled"
     export function MotorCtrlSpeed(speed: number, motor: enMotor, index: MotorState): void {
         Motor_run(motor, index, speed);
     }
