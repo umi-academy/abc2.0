@@ -317,12 +317,13 @@ namespace UMI_Robot {
         Motor_run(motor, index, speed);
     }
 
-    //% blockId=mbit_Servo_Car block="Set|%num|angle %value"
+    //% blockId=mbit_Servo_Car block="Set|%num|angle $value"
     //% weight=96
     //% blockGap=10
     //% color="#006400"
     //% num.min=1 num.max=3 value.min=0 value.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=9
+    //% value.shadow="protractorPicker"
     export function Servo_Car(num: enServo, value: number): void {
 
         // 50hz: 20,000 us
