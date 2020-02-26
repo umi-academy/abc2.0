@@ -1,11 +1,11 @@
 {
-    "name": "mbit",
-    "version": "0.0.1",
+    "name": "UMI_ROBOT",
+    "version": "1.0.0",
     "description": "Extension for ABC Maker V2",
     "license": "MIT",
     "dependencies": {
         "core": "*",
-        "Mbit_IR":  "github:umi-academy/bit-ir"
+        "UMI_REMOTE":  "github:umi-academy/ir"
 	
 
     },

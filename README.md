@@ -1,6 +1,6 @@
 # mbit
 
-Extension for Yahboom zh_tr mbit 
+Extension for ABC Maker 2.0 
 
 ## License
 
