@@ -298,7 +298,7 @@ namespace UMI_Robot {
         }
     }
 
-    //% blockId=mbit_MotorCtrl block="Set %motor %index"
+    //% blockId=mbit_MotorCtrl block="%motor %index"
     //% weight=4
     //% blockGap=10
     //% color="#006400"
@@ -308,7 +308,7 @@ namespace UMI_Robot {
         Motor_run(motor, index, 255);
     }
 
-    //% blockId=mbit_MotorCtrlSpeed block="Set %motor %index with speed %speed"
+    //% blockId=mbit_MotorCtrlSpeed block="%motor %index with speed %speed"
     //% weight=4
     //% blockGap=10
     //% speed.min=0 speed.max=255
