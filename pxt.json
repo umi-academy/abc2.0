@@ -2,6 +2,7 @@
     "name": "UMI_ROBOT",
     "version": "1.0.0",
     "description": "Extension for ABC Maker V2",
+    "icon": "icon.png",
     "license": "MIT",
     "dependencies": {
         "core": "*",
